@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-primary">
+            <div class="inner">
+                <h3>{{ $totalCustomers }}</h3>
+                <p>Clientes Registrados</p>
+            </div>
+            <div class="small-box-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                Ir <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-success">
+            <div class="inner">
+                <h3>{{ $totalTramites }}</h3>
+                <p>Trámites Completados</p>
+            </div>
+            <div class="small-box-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                Ir <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-warning">
+            <div class="inner">
+                <h3>{{ $totalTramitesPending }}</h3>
+                <p>Trámites Pendientes</p>
+            </div>
+            <div class="small-box-icon">
+                <i class="fas fa-hourglass-half"></i>
+            </div>
+            <a href="#" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                Ir <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-info">
+            <div class="inner">
+                <h3>2</h3>
+                <p>Personal Activo</p>
+            </div>
+            <div class="small-box-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                Ir <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
