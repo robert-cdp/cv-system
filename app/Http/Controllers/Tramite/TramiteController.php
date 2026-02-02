@@ -53,8 +53,17 @@ class TramiteController extends Controller
     public function update(UpdateRequest $request, int $id)
     {
         $tramite = Tramite::findOrFail($id);
-        $customer = $tramite->customerService->customer;
+
         $tramite->update($request->validated());
+      
+        if ($request->filled('service_id')) {
+            $tramite->customerService->update([
+                'service_id' => $request->service_id
+            ]);
+        }
+
+        $customer = $tramite->customerService->customer;
+
         return redirect()->route('customer.show', $customer->dpi)->with('success', 'Actualizado Correctamente.');
     }
 

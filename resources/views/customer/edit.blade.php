@@ -19,8 +19,7 @@
 
                     {{-- NIT --}}
                     <div class="col-12 col-md-6">
-                        <x-form.input name="nit" label="NIT" icon="fas fa-file-invoice" placeholder="Ingrese el NIT"
-                            value="{{ $customer->nit ?? '' }}" required />
+                        <x-form.input name="nit" label="NIT" icon="fas fa-file-invoice" placeholder="Ingrese el NIT" value="{{ $customer->nit ?? '' }}" />
                     </div>
 
                     {{-- Nombre completo --}}

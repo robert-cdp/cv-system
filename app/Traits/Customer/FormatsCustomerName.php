@@ -21,9 +21,22 @@ trait FormatsCustomerName
 
     protected static function formatName(string $name): string
     {
-        return collect(explode(' ', strtolower(trim($name))))
-            ->filter()
-            ->map(fn ($word) => Str::ucfirst($word))
+        $lowercaseWords = ['de', 'del', 'la', 'las', 'los', 'y'];
+
+        $name = preg_replace('/[^\p{L}\s]/u', '', $name);
+        $name = preg_replace('/\s+/', ' ', trim($name));
+
+        return collect(explode(' ', $name))
+            ->map(function ($word) use ($lowercaseWords) {
+                $wordLower = mb_strtolower($word, 'UTF-8');
+
+                if (in_array($wordLower, $lowercaseWords)) {
+                    return $wordLower;
+                }
+
+                return mb_strtoupper(mb_substr($wordLower, 0, 1, 'UTF-8'), 'UTF-8')
+                    . mb_substr($wordLower, 1, null, 'UTF-8');
+            })
             ->implode(' ');
     }
 }
