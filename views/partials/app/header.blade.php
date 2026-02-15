@@ -7,9 +7,9 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-auto">
-                    @include('partials.header-notification')
-                    @include('partials.header-user')
+                <ul class="navbar-nav">
+                    @include('partials.header.notification')
+                    @include('partials.header.user')
                 </ul>
             </div>
         </nav>

@@ -6,7 +6,7 @@
             </div>
             <div class="sidebar-wrapper">
                 <nav class="mt-2">
-                    @include('partials.sidebar-menu')
+                    @include('partials.sidebar.menu')
                 </nav>
             </div>
         </aside>

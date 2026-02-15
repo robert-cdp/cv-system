@@ -1,14 +1,14 @@
                     <li class="nav-item dropdown">
-                        @include('partials.user.icon')
+                        @include('partials.header.user.icon')
 
                         <div class="dropdown-menu dropdown-menu-end border-0 shadow" style="width: 280px;">
 
-                            @include('partials.user.header')
+                            @include('partials.header.user.header')
 
-                            @include('partials.user.options')
+                            @include('partials.header.user.options')
 
                             <div class="dropdown-divider my-0"></div>
 
-                            @include('partials.user.logout')
+                            @include('partials.header.user.logout')
                         </div>
                     </li>
