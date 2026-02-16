@@ -1,6 +1,8 @@
 <li class="nav-item">
     <a href="{{ route($route) }}" class="nav-link {{ $active ? 'active' : '' }}">
-        <i class="{{ $icon }} nav-icon"></i>
+        
+        <x-svg-icon name="{{ $icon }}" class="nav-icon me-2" />
+
         <p>{{ $label }}</p>
     </a>
 </li>

@@ -1,9 +1,11 @@
 <li class="nav-item {{ $open ? 'menu-open' : '' }}">
     <a href="#" class="nav-link {{ $open ? 'active' : '' }}">
-        <i class="nav-icon {{ $icon }}"></i>
+        
+        <x-svg-icon name="{{ $icon }}" class="nav-icon me-2" />
+
         <p>
             {{ $label }}
-            <i class="nav-arrow fas fa-chevron-right"></i>
+            <x-svg-icon name="chevron-right" class="nav-arrow" />
         </p>
     </a>
 
