@@ -30,10 +30,7 @@ class TramiteController extends Controller
             $request->validated()
         );
 
-        return response()->json([
-            'success' => true,
-            'redirect' => route('customer.show', $customer->dpi),
-        ]);
+        return redirect()->route('customer.show', $customer->dpi)->with('success', 'Creado Correctamente.');
     }
 
     public function print(string $dpi)

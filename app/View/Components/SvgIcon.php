@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 class SvgIcon extends Component
 {
     public string $name;
-    public string $class;
+    public ?string $class;
 
     public function __construct($name, $class = '')
     {
@@ -17,6 +17,6 @@ class SvgIcon extends Component
 
     public function render()
     {
-        return view('components.svg-icon');
+        return view('components.ui.svg-icon');
     }
 }

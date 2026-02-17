@@ -5,7 +5,7 @@
         </h3>
     </div>
 
-    <form method="POST" action="{{ route('tramite.store', $customer->dpi) }}" class="ajax-service-form">
+    <form method="POST" action="{{ route('tramite.store', $customer->dpi) }}">
         @csrf
 
         <div class="card-body">

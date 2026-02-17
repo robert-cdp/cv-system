@@ -24,6 +24,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/customer-service-form.js') }}"></script>
-    <script src="{{ asset('js/ajax-form.js') }}"></script>
+    <script src="{{ asset('panel/js/customer-service-form.js') }}"></script>
+    <script src="{{ asset('panel/js/ajax-form.js') }}"></script>
 @endpush

@@ -8,7 +8,6 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    @include('partials.header.notification')
                     @include('partials.header.user')
                 </ul>
             </div>
