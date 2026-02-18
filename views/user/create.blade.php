@@ -1,10 +1,7 @@
 @extends('main')
 
-<x-ui.page-meta 
-    title="Crear Usuario" 
-    subtitle="Complete el formulario para registrar un nuevo usuario"
-    icon="person-plus" 
-/>
+<x-ui.page-meta title="Crear Usuario" subtitle="Complete el formulario para registrar un nuevo usuario"
+    icon="person-plus" />
 
 @section('content')
     <div class="card card-outline card-primary">

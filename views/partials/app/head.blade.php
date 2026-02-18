@@ -15,4 +15,4 @@
 
     {{-- STYLES --}}
     <link rel="stylesheet" href="{{ asset('panel/plugins/adminlte/css/adminlte.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('panel/css/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/icon.css') }}" />
