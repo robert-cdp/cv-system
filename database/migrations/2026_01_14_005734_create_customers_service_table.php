@@ -31,16 +31,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('customer_tramite_histories', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('customer_tramite_id')->constrained('customer_tramites')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('set null'); // quién hizo la acción
-            $table->enum('status', ['pendiente', 'completo', 'cancelado']); // o más estados según necesidad
-            $table->text('comment')->nullable();
-            $table->timestamp('action_at')->useCurrent(); // cuándo se hizo
-            $table->timestamps();
-        });
-
     }
 
     /**

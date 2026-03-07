@@ -11,7 +11,8 @@ class RoleController extends Controller
 {
     public function index()
     {
-        return view('role.index');
+        $roles = Role::all();
+        return view('role.index', compact('roles'));
     }
 
     public function create()
@@ -21,7 +22,7 @@ class RoleController extends Controller
 
     public function store(StoreRequest $request)
     {
-        Role::create($request->validated($request->validated()));
+        Role::create($request->validated());
         return redirect()->route('role.index')->with('success', 'Creado Correctamente.');
     }
 

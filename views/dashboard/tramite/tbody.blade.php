@@ -22,7 +22,7 @@
             @if($tramite->customerService?->customer?->dpi)
                 <a href="{{ route('customer.show', $tramite->customerService->customer->dpi) }}"
                    class="btn btn-sm btn-outline-primary">
-                    <i class="fas fa-eye"></i>
+                    <x-ui.svg-icon name="eye" />
                 </a>
             @else
                 <span class="text-muted">—</span>

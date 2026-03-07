@@ -7,7 +7,7 @@
             <div class="row g-3 align-items-end">
 
                 <div class="col-xl-3 col-lg-4">
-                    <x-form.select name="search_type" label="Buscar por" icon="fas fa-filter" id="searchType"
+                    <x-form.select name="search_type" label="Buscar por" icon="funnel" id="searchType"
                         :options="[
                             'dpi' => 'DPI',
                             'nit' => 'NIT',
@@ -17,18 +17,18 @@
                 </div>
 
                 <div class="col-xl-6 col-lg-5">
-                    <x-form.input name="search_value" label="Valor de búsqueda" icon="fa fa-search-plus"
+                    <x-form.input name="search_value" label="Valor de búsqueda" icon="search"
                         id="searchValue" placeholder="Escriba para buscar clientes" />
                 </div>
 
                 <div class="col-xl-3 col-lg-3 text-end">
                     <button type="button" id="clearBtn" class="btn btn-outline-secondary me-2">
-                        <i class="fas fa-eraser me-1"></i>
+                        <x-ui.svg-icon name="eraser" />
                         Limpiar
                     </button>
 
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search me-1"></i>
+                        <x-ui.svg-icon name="search" />
                         Buscar
                     </button>
                 </div>

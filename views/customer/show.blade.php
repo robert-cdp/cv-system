@@ -1,6 +1,10 @@
 @extends('main')
 
-@section('title', 'Gestion de Cliente')
+<x-ui.page-meta 
+    title="Detalle del Cliente"
+    subtitle="Consulte la información completa y los datos personales registrados del cliente."
+    icon="person-vcard" 
+/>
 
 @section('content')
     <div class="row">
@@ -21,6 +25,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/tramite-modal.js') }}"></script>
-    <script src="{{ asset('js/ajax-form.js') }}"></script>
+    <script src="{{ asset('panel/js/tramite-modal.js') }}"></script>
+    <script src="{{ asset('panel/js/ajax-form.js') }}"></script>
 @endpush

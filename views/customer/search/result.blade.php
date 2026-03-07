@@ -5,27 +5,27 @@
                 <thead class="table-light text-uppercase small">
                     <tr>
                         <th>
-                            <i class="fas fa-id-card me-1 text-muted"></i>
+                            <x-ui.svg-icon name="person-vcard" class="me-1 text-muted" />
                             DPI
                         </th>
 
                         <th>
-                            <i class="fas fa-receipt me-1 text-muted"></i>
+                            <x-ui.svg-icon name="receipt" class="me-1 text-muted" />
                             NIT
                         </th>
 
                         <th>
-                            <i class="fas fa-user me-1 text-muted"></i>
-                            Cliente
+                            <x-ui.svg-icon name="person" class="me-1 text-muted" />
+                            NOMBRE COMPLETO
                         </th>
 
                         <th>
-                            <i class="fas fa-calendar-alt me-1 text-muted"></i>
+                            <x-ui.svg-icon name="calendar-date" class="me-1 text-muted" />
                             Fecha Nac.
                         </th>
 
                         <th class="text-center">
-                            <i class="fas fa-ellipsis-h text-muted"></i>
+                            <x-ui.svg-icon name="three-dots" class="text-muted" />
                         </th>
                     </tr>
                 </thead>
@@ -55,7 +55,7 @@
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ route('customer.show', $customer->dpi) }}"
                                         class="btn btn-outline-primary">
-                                        <i class="fas fa-eye"></i>
+                                        <x-ui.svg-icon name="eye" />
                                     </a>
                                 </div>
                             </td>

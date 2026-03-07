@@ -14,7 +14,7 @@
 
             <td class="text-center">
                 <a href="{{ route('customer.show', $customer->dpi) }}" class="btn btn-sm btn-outline-primary">
-                    <i class="fas fa-eye"></i>
+                    <x-ui.svg-icon name="eye" />
                 </a>
             </td>
         </tr>

@@ -6,7 +6,7 @@
     <div class="input-group">
         @if ($icon)
             <span class="input-group-text">
-                <i class="{{ $icon }}"></i>
+                <x-ui.svg-icon name="{{ $icon }}" />
             </span>
         @endif
 
