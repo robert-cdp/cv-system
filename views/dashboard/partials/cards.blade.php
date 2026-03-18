@@ -6,7 +6,7 @@
                 <p>Clientes Registrados</p>
             </div>
             <div class="small-box-icon">
-                <i class="fas fa-users"></i>
+                <x-ui.svg-icon name="people"/>
             </div>
             <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                 Ir <i class="fas fa-arrow-circle-right"></i>
@@ -21,7 +21,7 @@
                 <p>Trámites Completados</p>
             </div>
             <div class="small-box-icon">
-                <i class="fas fa-check-circle"></i>
+                <x-ui.svg-icon name="check-circle"/>
             </div>
             <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                 Ir <i class="fas fa-arrow-circle-right"></i>
@@ -36,7 +36,7 @@
                 <p>Trámites Pendientes</p>
             </div>
             <div class="small-box-icon">
-                <i class="fas fa-hourglass-half"></i>
+                <x-ui.svg-icon name="hourglass-split"/>
             </div>
             <a href="#" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
                 Ir <i class="fas fa-arrow-circle-right"></i>
@@ -51,7 +51,7 @@
                 <p>Personal Activo</p>
             </div>
             <div class="small-box-icon">
-                <i class="fas fa-user-check"></i>
+                <x-ui.svg-icon name="person-check"/>
             </div>
             <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                 Ir <i class="fas fa-arrow-circle-right"></i>

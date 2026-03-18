@@ -9,14 +9,18 @@
         @csrf
 
         <div class="mb-3 input-group input-group-lg">
-            <span class="input-group-text bg-primary text-white"><i class="fas fa-envelope"></i></span>
-            <input type="email" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" required
-                autofocus>
+            <span class="input-group-text bg-primary text-white">
+                <x-ui.svg-icon name="envelope" />
+            </span>
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" autocomplete="off" required>
         </div>
 
         <div class="mb-3 input-group input-group-lg">
-            <span class="input-group-text bg-primary text-white"><i class="fas fa-lock"></i></span>
-            <input type="password" name="password" class="form-control form-control-lg" placeholder="Contraseña" required>
+            <span class="input-group-text bg-primary text-white">
+                <i class="fas fa-lock"></i>
+                <x-ui.svg-icon name="lock" />
+            </span>
+            <input type="password" name="password" class="form-control form-control-lg" placeholder="Contraseña" autocomplete="off" required>
         </div>
 
         <div class="d-flex justify-content-between align-items-center mb-4">

@@ -5,85 +5,67 @@
     icon="person-check-fill" />
 
 @section('content')
-    <div class="card card-outline card-primary shadow-sm">
+    <x-data-table title="Clientes" icon="people" :columns="[
+        ['label' => 'DPI', 'icon' => 'person-vcard'],
+        ['label' => 'NIT', 'icon' => 'receipt'],
+        ['label' => 'Nombre Completo', 'icon' => 'person'],
+        [
+            'label' => 'Fecha Nacimiento',
+            'icon' => 'calendar-date',
+            'class' => 'text-center',
+            'style' => 'width: 180px;',
+        ],
+        [
+            'label' => 'Acciones',
+            'class' => 'text-center',
+            'style' => 'width: 120px;',
+        ],
+    ]" searchPlaceholder="Buscar cliente..." :perPage="10"
+        emptyMessage="No hay clientes registrados" emptyIcon="people">
 
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover table-striped align-middle mb-0">
-                    <thead class="table-light text-uppercase small">
-                        <tr>
-                            <th>
-                                <x-ui.svg-icon name="person-vcard" class="me-1 text-muted" />
-                                DPI
-                            </th>
+        @foreach ($customers as $customer)
+            <tr>
 
-                            <th>
-                                <x-ui.svg-icon name="receipt" class="me-1 text-muted" />
-                                NIT
-                            </th>
+                {{-- DPI --}}
+                <td class="fw-medium">
+                    {{ $customer->dpi }}
+                </td>
 
-                            <th>
-                                <x-ui.svg-icon name="person" class="me-1 text-muted" />
-                                NOMBRE COMPLETO
-                            </th>
+                {{-- NIT --}}
+                <td class="text-muted">
+                    {{ $customer->nit ?? '—' }}
+                </td>
 
-                            <th>
-                                <x-ui.svg-icon name="calendar-date" class="me-1 text-muted" />
-                                Fecha Nac.
-                            </th>
+                {{-- Nombre --}}
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-circle me-2">
+                            {{ strtoupper(substr($customer->full_name, 0, 2)) }}
+                        </div>
 
-                            <th class="text-center">
-                                <x-ui.svg-icon name="three-dots" class="text-muted" />
-                            </th>
-                        </tr>
-                    </thead>
+                        <div class="fw-semibold">
+                            {{ $customer->full_name }}
+                        </div>
+                    </div>
+                </td>
 
-                    <tbody>
-                        @forelse ($customers as $customer)
-                            <tr>
-                                <td class="fw-medium">
-                                    {{ $customer->dpi }}
-                                </td>
+                {{-- Fecha nacimiento --}}
+                <td class="text-center text-muted">
+                    {{ optional($customer->birthday)->format('d/m/Y') ?? '—' }}
+                </td>
 
-                                <td class="text-muted">
-                                    {{ $customer->nit ?? '—' }}
-                                </td>
+                {{-- Acciones --}}
+                <td class="text-center">
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ route('customer.show', $customer->dpi) }}" class="btn btn-outline-primary"
+                            data-bs-toggle="tooltip" title="Ver cliente">
+                            <x-ui.svg-icon name="eye" />
+                        </a>
+                    </div>
+                </td>
 
-                                <td>
-                                    <div class="fw-semibold">
-                                        {{ $customer->full_name }}
-                                    </div>
-                                </td>
-
-                                <td class="text-muted">
-                                    {{ optional($customer->birthday)->format('d/m/Y') ?? '—' }}
-                                </td>
-
-                                <td class="text-center">
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('customer.show', $customer->dpi) }}"
-                                            class="btn btn-outline-primary">
-                                            <x-ui.svg-icon name="eye" />
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center py-5">
-                                    <div class="d-flex flex-column align-items-center gap-2 text-muted">
-                                        <i class="fas fa-users-slash fa-2x"></i>
-                                        <strong>No hay clientes registrados</strong>
-                                        <span class="small">
-                                            Cuando agregues clientes aparecerán aquí
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+            </tr>
+        @endforeach
+    </x-data-table>
+    <x-delete-modal />
 @endsection

@@ -9,7 +9,10 @@
         @csrf
 
         <div class="mb-3 input-group input-group-lg">
-            <span class="input-group-text bg-primary text-white"><i class="fas fa-envelope"></i></span>
+            <span class="input-group-text bg-primary text-white">
+                <x-ui.svg-icon name="envelope" />
+                
+            </span>
             <input type="email" name="email" class="form-control form-control-lg" placeholder="Correo electrónico" required
                 autofocus>
         </div>

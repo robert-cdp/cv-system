@@ -4,7 +4,7 @@
     @if ($icon)
         <div class="input-group">
             <span class="input-group-text">
-                <x-ui.svg-icon name="{{ $icon }}" />
+                <i class="{{ $icon }}"></i>
             </span>
 
             <textarea name="{{ $name }}" id="{{ $name }}" rows="{{ $rows }}"

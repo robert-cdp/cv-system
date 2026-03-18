@@ -4,7 +4,7 @@
     <div class="card card-outline card-primary mb-4">
         <div class="card-body">
 
-            <div class="row g-3 align-items-end">
+            <div class="row g-3">
 
                 <div class="col-xl-3 col-lg-4">
                     <x-form.select name="search_type" label="Buscar por" icon="funnel" id="searchType"
@@ -17,11 +17,11 @@
                 </div>
 
                 <div class="col-xl-6 col-lg-5">
-                    <x-form.input name="search_value" label="Valor de búsqueda" icon="search"
-                        id="searchValue" placeholder="Escriba para buscar clientes" />
+                    <x-form.input name="search_value" label="Valor de búsqueda" icon="search" id="searchValue"
+                        placeholder="Escriba para buscar clientes" />
                 </div>
 
-                <div class="col-xl-3 col-lg-3 text-end">
+                <div class="col-xl-3 col-lg-3 d-flex align-items-end justify-content-end">
                     <button type="button" id="clearBtn" class="btn btn-outline-secondary me-2">
                         <x-ui.svg-icon name="eraser" />
                         Limpiar
@@ -32,7 +32,9 @@
                         Buscar
                     </button>
                 </div>
+
             </div>
+
         </div>
     </div>
 </form>

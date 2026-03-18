@@ -1,12 +1,15 @@
 @extends('main')
 
-<x-ui.page-meta title="Crear Usuario" subtitle="Complete el formulario para registrar un nuevo usuario"
-    icon="person-plus" />
+<x-page-meta title="Crear Usuario" subtitle="Complete el formulario para registrar un nuevo usuario" icon="person-plus" />
 
 @section('content')
     <div class="card card-outline card-primary">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Datos del Usuario</h5>
+        </div>
+
         <div class="card-body">
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('user.store') }}" method="post">
                 @csrf
 
                 <div class="row g-3">
