@@ -15,14 +15,14 @@ class UpdateRequest extends FormRequest
 
     public function rules(): array
     {
-        $slug = $this->route('slug');
+        $category = $this->route('category');
 
         return [
             'name' => [
                 'required',
                 'string',
                 'max:255',
-                Rule::unique('categories', 'name')->ignore($slug, 'slug')
+                Rule::unique('products_categories', 'name')->ignore($category?->id)
             ],
             'description' => 'required|string'
         ];

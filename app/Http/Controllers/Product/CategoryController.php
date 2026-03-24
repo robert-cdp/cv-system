@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function store(StoreRequest $request)
     {
         Category::create($request->validated());
-        return redirect()->route('product.category.index')->with('success', 'Creado correctamente.');
+        return redirect()->route('product.categories.index')->with('success', 'Creado correctamente.');
     }
 
     public function show(Category $category)
@@ -39,12 +39,12 @@ class CategoryController extends Controller
     public function update(UpdateRequest $request, Category $category)
     {
         $category->update($request->validated());
-        return redirect()->route('product.category.index')->with('success', 'Actualizado correctamente.');
+        return redirect()->route('product.categories.index')->with('success', 'Actualizado correctamente.');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('product.category.index')->with('success', 'Eliminado correctamente.');
+        return redirect()->route('product.categories.index')->with('success', 'Eliminado correctamente.');
     }
 }

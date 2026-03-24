@@ -13,27 +13,20 @@ return new class extends Migration
     {
         Schema::create('cash_registers', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->decimal('opening_amount', 10, 2);
             $table->decimal('closing_amount', 10, 2)->nullable();
-
             $table->timestamp('opened_at');
             $table->timestamp('closed_at')->nullable();
-
             $table->timestamps();
         });
 
         Schema::create('cash_movements', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('cash_register_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('cash_register_id')->constrained('cash_registers')->cascadeOnDelete();
             $table->enum('type', ['sale', 'income', 'expense']);
             $table->decimal('amount', 10, 2);
             $table->text('description')->nullable();
-
             $table->timestamps();
         });
     }
@@ -43,6 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cash_registers_tables');
+        Schema::dropIfExists('cash_movements');
+        Schema::dropIfExists('cash_registers');
     }
 };

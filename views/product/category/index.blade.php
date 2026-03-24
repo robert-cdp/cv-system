@@ -1,12 +1,12 @@
 @extends('main')
 
-<x-page-meta title="Usuarios" subtitle="Listado de usuarios registrados" icon="person-badge" />
+<x-page-meta title="Categorías de Productos" subtitle="Listado de categorías de productos" icon="tag" />
 
 @section('content')
-    <x-data-table title="Usuarios" icon="person-badge" :columns="[
+    <x-data-table title="Categorías" icon="tag" :columns="[
         ['label' => '#', 'class' => 'text-center', 'style' => 'width: 60px;'],
-        ['label' => 'Usuario', 'icon' => 'person'],
-        ['label' => 'Email', 'icon' => 'envelope'],
+        ['label' => 'Nombre', 'icon' => 'tag'],
+        ['label' => 'Descripción', 'icon' => 'card-text'],
         [
             'label' => 'Fecha Registro',
             'icon' => 'calendar-event',
@@ -20,37 +20,33 @@
             'style' => 'width: 200px;',
         ],
         ['label' => 'Acciones', 'class' => 'text-center', 'style' => 'width: 180px;'],
-    ]" addRoute="{{ route('user.create') }}"
-        addText="Nuevo Usuario" searchPlaceholder="Buscar usuario..." :perPage="10"
-        emptyMessage="No hay usuarios registrados" emptyIcon="person-x">
+    ]" addRoute="{{ route('product.categories.create') }}"
+        addText="Nueva Categoría" searchPlaceholder="Buscar categoría..." :perPage="10"
+        emptyMessage="No hay categorías registradas" emptyIcon="tag">
 
-        @foreach ($users as $item)
+        @foreach ($categories as $item)
             <tr>
-                {{-- # --}}
                 <td class="text-center text-muted fw-semibold">
-                    {{ $item->code }}
+                    {{ $item->id }}
                 </td>
 
-                {{-- Usuario --}}
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="avatar-circle me-2">
                             {{ strtoupper(substr($item->name, 0, 2)) }}
                         </div>
-                        <div>
-                            <div class="fw-semibold">{{ $item->name }}</div>
+                        <div class="fw-semibold">
+                            {{ $item->name }}
                         </div>
                     </div>
                 </td>
 
-                {{-- Email --}}
                 <td>
-                    <a href="mailto:{{ $item->email }}" class="text-decoration-none">
-                        {{ $item->email }}
-                    </a>
+                    <span class="text-muted">
+                        {{ $item->description ?? 'Sin descripción' }}
+                    </span>
                 </td>
 
-                {{-- Fecha creación --}}
                 <td class="text-center">
                     <span class="text-muted">
                         {{ $item->created_at?->format('d/m/Y') ?? 'N/A' }}
@@ -61,7 +57,6 @@
                     </small>
                 </td>
 
-                {{-- Fecha actualización --}}
                 <td class="text-center">
                     <span class="text-muted">
                         {{ $item->updated_at?->format('d/m/Y') ?? 'N/A' }}
@@ -72,21 +67,20 @@
                     </small>
                 </td>
 
-                {{-- Acciones --}}
                 <td class="text-center">
                     <div class="btn-group btn-group-sm" role="group">
-                        <a href="{{ route('user.edit', $item->slug) }}" class="btn btn-outline-primary"
+                        <a href="{{ route('product.categories.edit', $item->slug) }}" class="btn btn-outline-primary"
                             data-bs-toggle="tooltip" title="Editar">
                             <x-ui.svg-icon name="pencil" />
                         </a>
 
-                        <x-delete-button :action="route('user.destroy', $item->slug)" />
-
+                        <x-delete-button :action="route('product.categories.destroy', $item->slug)" />
                     </div>
                 </td>
             </tr>
         @endforeach
 
     </x-data-table>
+
     <x-delete-modal />
 @endsection

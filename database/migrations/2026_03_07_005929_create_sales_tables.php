@@ -13,24 +13,19 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('cash_register_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('user_id')->constrained('sales')->cascadeOnDelete();
+            $table->foreignId('cash_register_id')->constrained('cash_registers')->cascadeOnDelete();
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });
 
         Schema::create('sale_items', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('sale_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('sale_id')->constrained('sales')->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->integer('quantity');
             $table->decimal('price', 10, 2);
             $table->decimal('subtotal', 10, 2);
-
             $table->timestamps();
         });
     }
@@ -40,6 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales_tables');
+        Schema::dropIfExists('sale_items');
+        Schema::dropIfExists('sales');
     }
 };
