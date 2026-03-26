@@ -3,11 +3,20 @@
 
     <x-menu.item route="dashboard.index" icon="house" label="Dashboard" />
 
+    <x-menu.item route="pos.index" icon="cart" label="POS" />
+
     <x-menu.group icon="box-seam" label="Productos" active-route="product.*">
         <x-menu.item route="product.categories.index" icon="tags" label="Categorías" />
         <x-menu.item route="product.categories.create" icon="tag" label="Nueva Categoría" />
-        <x-menu.item route="product.index" icon="box" label="Productos" />
+        <x-menu.item route="product.index" icon="boxes" label="Productos" />
         <x-menu.item route="product.create" icon="plus-square" label="Nuevo Producto" />
+    </x-menu.group>
+
+    <x-menu.group icon="cash-stack" label="Caja" active-route="cash.*">
+        <x-menu.item route="cash.open.form" icon="plus" label="Abrir Caja" />
+        <x-menu.item route="cash.index" icon="speedometer2" label="Historial Caja" />
+        <x-menu.item route="cash.income.form" icon="arrow-down-circle" label="Reportar Entrada" />
+        <x-menu.item route="cash.expense.form" icon="arrow-up-circle" label="Reportar Salida" />
     </x-menu.group>
 
     <x-menu.group icon="people" label="Clientes" active-route="customer.*">

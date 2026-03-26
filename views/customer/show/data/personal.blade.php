@@ -13,7 +13,9 @@
             </a>
         </li>
 
-        <li><hr class="dropdown-divider"></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
 
         <li>
             <a class="dropdown-item d-flex align-items-start gap-2 text-wrap"
@@ -31,18 +33,64 @@
             </a>
         </li>
 
-        <li><hr class="dropdown-divider"></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
 
         <li>
-            <button type="button"
-                class="dropdown-item d-flex align-items-start gap-2 text-danger text-wrap"
-                data-bs-toggle="modal"
-                data-bs-target="#deleteCustomer"
+            <button type="button" class="dropdown-item d-flex align-items-start gap-2 text-danger text-wrap"
+                data-bs-toggle="modal" data-bs-target="#deleteCustomer"
                 data-action="{{ route('customer.destroy', $customer->id) }}">
-                
+
                 <x-ui.svg-icon name="trash" />
                 <span>Eliminar Cliente</span>
             </button>
         </li>
     </ul>
+</div>
+<div class="card card-primary card-outline mb-4">
+
+    <div class="card-header text-center">
+        <div class="text-muted mb-1">
+            <x-ui.svg-icon name="person" class="me-1" />
+            Nombre Completo
+        </div>
+        <div class="fw-semibold">
+            {{ $customer->full_name }}
+        </div>
+    </div>
+
+    <div class="card-body p-0">
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="text-muted">
+                    <x-ui.svg-icon name="card-text" class="me-1" />
+                    DPI
+                </span>
+                <span class="fw-semibold">{{ $customer->dpi }}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="text-muted">
+                    <x-ui.svg-icon name="credit-card" class="me-1" />
+                    NIT
+                </span>
+                <span class="fw-semibold">{{ $customer->nit }}</span>
+            </li>
+
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="text-muted">
+                    <x-ui.svg-icon name="calendar" class="me-1" />
+                    Nacimiento
+                </span>
+                <span class="fw-semibold">{{ $customer->birthday->format('d/m/Y') }}</span>
+            </li>
+
+        </ul>
+
+    </div>
+
 </div>
