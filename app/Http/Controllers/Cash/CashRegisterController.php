@@ -130,7 +130,6 @@ class CashRegisterController extends Controller
             'opening_amount' => 'required|numeric|min:0'
         ]);
 
-        // validar si ya tiene caja abierta
         $exists = CashRegister::where('user_id', auth()->id())
             ->whereNull('closed_at')
             ->exists();
