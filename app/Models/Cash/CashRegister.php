@@ -5,16 +5,20 @@ namespace App\Models\Cash;
 use App\Models\Sales\Sale;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class CashRegister extends Model
 {
     protected $fillable = [
         'user_id',
+        'status',
         'opening_amount',
         'closing_amount',
         'opened_at',
         'closed_at',
     ];
+
+    protected $guarded = ['opened_at'];
 
     protected $casts = [
         'opened_at' => 'datetime',
@@ -34,5 +38,20 @@ class CashRegister extends Model
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function scopeOfUser($query, $userId = null)
+    {
+        return $query->where('user_id', $userId ?? Auth::id());
+    }
+
+    public function scopeOpen($query)
+    {
+        return $query->whereNull('closed_at');
+    }
+
+    public function scopeCurrentOpen($query)
+    {
+        return $query->where('user_id', Auth::id())->whereNull('closed_at');
     }
 }

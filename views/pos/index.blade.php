@@ -369,7 +369,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text-1); fo
         <span class="topbar-sub">/ Punto de Venta</span>
     </div>
     <div class="topbar-actions">
-        <button class="tb-btn" onclick="window.history.back()">← Regresar</button>
+        <a href="{{ route('dashboard.index') }}" class="tb-btn">Regresar</a>
     </div>
 </div>
 

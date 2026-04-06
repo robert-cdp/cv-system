@@ -22,28 +22,53 @@
                 </td>
 
                 {{-- Apertura --}}
-                <td>
-                    <span class="text-muted">
-                        {{ $cash->opened_at?->format('d/m/Y H:i') ?? 'N/A' }}
-                    </span>
-                    <br>
-                    <small class="text-muted">
-                        {{ $cash->opened_at?->diffForHumans() }}
-                    </small>
+                <td class="align-middle">
+                    <div>
+                        <small class="text-muted d-block">
+                            <i class="far fa-calendar-alt"></i>
+                            {{ $cash->opened_at->format('d/m/Y') }}
+                        </small>
+
+                        <span class="fw-bold text-primary d-block">
+                            <i class="far fa-clock"></i>
+                            {{ $cash->opened_at->format('h:i A') }}
+                        </span>
+
+                        <small class="text-muted">
+                            {{ $cash->opened_at->diffForHumans() }}
+                        </small>
+                    </div>
                 </td>
 
+
                 {{-- Cierre --}}
-                <td>
+                <td class="align-middle">
                     @if ($cash->closed_at)
-                        <span class="text-muted">
-                            {{ $cash->closed_at->format('d/m/Y H:i') }}
-                        </span>
-                        <br>
-                        <small class="text-muted">
-                            {{ $cash->closed_at->diffForHumans() }}
-                        </small>
+                        <div>
+                            <small class="text-muted d-block">
+                                <i class="far fa-calendar-check"></i>
+                                {{ $cash->closed_at->format('d/m/Y') }}
+                            </small>
+
+                            <span class="fw-bold text-success d-block">
+                                <i class="far fa-clock"></i>
+                                {{ $cash->closed_at->format('h:i A') }}
+                            </span>
+
+                            <small class="text-muted">
+                                {{ $cash->closed_at->diffForHumans() }}
+                            </small>
+
+                            {{-- Duración --}}
+                            <small class="text-info d-block">
+                                <i class="fas fa-hourglass-half"></i>
+                                {{ $cash->opened_at->diff($cash->closed_at)->format('%h h %i min') }}
+                            </small>
+                        </div>
                     @else
-                        <span class="badge bg-warning text-dark">Abierta</span>
+                        <span class="badge bg-warning text-dark">
+                            <i class="fas fa-lock-open"></i> Abierta
+                        </span>
                     @endif
                 </td>
 
