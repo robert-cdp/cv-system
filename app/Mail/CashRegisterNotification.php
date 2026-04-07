@@ -32,8 +32,34 @@ class CashRegisterNotification extends Mailable
 
     public function content(): Content
     {
+        $this->cashRegister->load([
+            'user',
+            'movements',
+            'sales.items.product'
+        ]);
+
+        $totalSales   = $this->cashRegister->totalSales();
+        $totalIncome  = $this->cashRegister->totalIncome();
+        $totalExpense = $this->cashRegister->totalExpense();
+
+        $expected = $this->cashRegister->opening_amount
+            + $totalSales
+            + $totalIncome
+            + $totalExpense;
+
+        $difference = $this->cashRegister->closing_amount !== null
+            ? $this->cashRegister->closing_amount - $expected
+            : null;
+
         return new Content(
             view: 'emails.cash_register_notification',
+            with: compact(
+                'totalSales',
+                'totalIncome',
+                'totalExpense',
+                'expected',
+                'difference'
+            ),
         );
     }
 

@@ -25,6 +25,7 @@ class CashRegister extends Model
         'closed_at' => 'datetime',
     ];
 
+    // Relaciones
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -39,6 +40,24 @@ class CashRegister extends Model
     {
         return $this->hasMany(Sale::class);
     }
+
+    // Logica
+    public function totalSales()
+    {
+        return $this->sales->sum('total');
+    }
+
+    public function totalIncome()
+    {
+        return $this->movements->where('type', 'income')->sum('amount');
+    }
+
+    public function totalExpense()
+    {
+        return $this->movements->where('type', 'expense')->sum('amount');
+    }
+
+    // Scopes Necesarios
 
     public function scopeOfUser($query, $userId = null)
     {

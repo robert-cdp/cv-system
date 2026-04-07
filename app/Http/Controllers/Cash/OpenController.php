@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Cash;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cash\CashRegister;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Cash\OpenRequest;
 use App\Mail\CashRegisterNotification;
-use App\Models\Cash\CashRegister;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class OpenController extends Controller
 {
     public function openForm()
     {
         if (CashRegister::currentOpen()->exists()) {
-            return back()->with('error', 'Ya tienes una caja abierta');
+            return redirect()->route('cash.index')->with('error', 'Ya tienes una caja abierta');
         }
 
         return view('cash.open');
@@ -24,7 +23,7 @@ class OpenController extends Controller
     public function open(OpenRequest $request)
     {
         if (CashRegister::currentOpen()->exists()) {
-            return back()->with('error', 'Ya tienes una caja abierta');
+            return redirect()->route('cash.index')->with('error', 'Ya tienes una caja abierta');
         }
 
         $cashRegister = CashRegister::create([
@@ -33,7 +32,7 @@ class OpenController extends Controller
             'opened_at' => now(),
         ]);
 
-        Mail::to('admin@empresa.com')->send(
+        Mail::to('roberto@conexionvirtual.net')->send(
             new CashRegisterNotification($cashRegister, 'open')
         );
 

@@ -4,7 +4,6 @@
 
 @section('content')
 
-    {{-- ===== FILA SUPERIOR: 4 métricas principales ===== --}}
     <div class="row g-3 mb-3">
 
         <div class="col-lg-3 col-sm-6">
@@ -42,7 +41,7 @@
         <div class="col-lg-3 col-sm-6">
             <div class="small-box text-bg-green">
                 <div class="inner">
-                    <h3>Q {{ number_format($totalIngresos, 2) }}</h3>
+                    <h3>Q {{ number_format($totalIncome, 2) }}</h3>
                     <p>Ingresos</p>
                 </div>
                 <div class="small-box-icon">
@@ -58,7 +57,7 @@
         <div class="col-lg-3 col-sm-6">
             <div class="small-box text-bg-danger">
                 <div class="inner">
-                    <h3>Q {{ number_format(abs($totalEgresos), 2) }}</h3>
+                    <h3>Q {{ number_format(abs($totalExpense), 2) }}</h3>
                     <p>Egresos</p>
                 </div>
                 <div class="small-box-icon">
@@ -129,7 +128,6 @@
 
     </div>
 
-    {{-- ===== FILA INFERIOR: Movimientos y Ventas ===== --}}
     <div class="row g-3">
 
         {{-- Movimientos de Caja --}}

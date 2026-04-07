@@ -16,10 +16,6 @@ class IncomeController extends Controller
 
     public function income(IncomeRequest $request)
     {
-        $request->validate([
-            
-        ]);
-
         $cashRegister = CashRegister::currentOpen()->firstOrFail();
 
         CashMovement::create([

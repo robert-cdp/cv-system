@@ -40,7 +40,6 @@
                     </div>
                 </td>
 
-
                 {{-- Cierre --}}
                 <td class="align-middle">
                     @if ($cash->closed_at)
@@ -57,12 +56,6 @@
 
                             <small class="text-muted">
                                 {{ $cash->closed_at->diffForHumans() }}
-                            </small>
-
-                            {{-- Duración --}}
-                            <small class="text-info d-block">
-                                <i class="fas fa-hourglass-half"></i>
-                                {{ $cash->opened_at->diff($cash->closed_at)->format('%h h %i min') }}
                             </small>
                         </div>
                     @else
@@ -109,10 +102,10 @@
                         </a>
 
                         @if (is_null($cash->closed_at))
-                            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#closeCashModal" data-cash-id="{{ $cash->id }}" title="Cerrar caja">
+                            <a href="{{ route('cash.close') }}" class="btn btn-outline-danger btn-sm"
+                                data-bs-toggle="tooltip" title="Cerrar caja">
                                 <x-ui.svg-icon name="lock" />
-                            </button>
+                            </a>
                         @endif
 
                     </div>
@@ -121,55 +114,4 @@
         @endforeach
 
     </x-data-table>
-
-    <div class="modal fade" id="closeCashModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header bg-danger">
-                    <h5 class="modal-title">Cerrar Caja</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    <p>¿Estás seguro de cerrar esta caja?</p>
-                    <p class="text-muted small">
-                        Esta acción registrará el cierre y no podrá modificarse.
-                    </p>
-                </div>
-
-                <div class="modal-footer">
-                    <form action="{{ route('cash.close') }}" method="POST">
-                        @csrf
-
-                        {{-- 🔥 aquí se inyecta el ID --}}
-                        <input type="hidden" name="cash_id" id="cash_id">
-
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Cancelar
-                        </button>
-
-                        <button type="submit" class="btn btn-danger">
-                            Sí, cerrar caja
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('closeCashModal');
-
-            modal.addEventListener('show.bs.modal', function(event) {
-                const button = event.relatedTarget;
-                const cashId = button.getAttribute('data-cash-id');
-
-                const input = modal.querySelector('#cash_id');
-                input.value = cashId;
-            });
-        });
-    </script>
 @endsection
