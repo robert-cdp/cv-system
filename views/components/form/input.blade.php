@@ -10,7 +10,8 @@
 
         <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             class="form-control @error($name) is-invalid @enderror" value="{{ $value }}"
-            placeholder="{{ $placeholder }}" @if ($required) required @endif>
+            placeholder="{{ $placeholder }}" @if (isset($step)) step="{{ $step }}" @endif
+            @if ($required) required @endif>
     </div>
 
     @error($name)

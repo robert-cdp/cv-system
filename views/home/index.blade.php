@@ -11,25 +11,7 @@
 
 <body>
 
-    <header class="header" id="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                <img src="{{ asset('img/encabezado.png') }}" alt="">
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="#inicio" class="nav-item">Inicio</a>
-                <a href="#categorias" class="nav-item">Categorías</a>
-                <a href="#servicios" class="nav-item">Servicios</a>
-                <a href="#contacto" class="nav-item">Contacto</a>
-                <a href="#contacto" class="cta-nav">Comenzar</a>
-            </div>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+    @include('home.header')
 
     <section class="hero" id="inicio">
         <div class="hero-bg"></div>
@@ -59,158 +41,206 @@
         </div>
     </section>
 
-    <section class="section" id="categorias">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nuestras Especialidades</span>
-                <h2 class="section-title">Categorías de Servicio</h2>
-                <p class="section-description">Ofrecemos soluciones completas para impulsar tu presencia digital y
-                    facilitar tus trámites en línea.</p>
-            </div>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">🌐</div>
-                    <h3 class="category-title">Hosting Web</h3>
-                    <p class="category-description">Alojamiento web confiable y de alto rendimiento para tu sitio o
-                        aplicación.</p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">💻</div>
-                    <h3 class="category-title">Desarrollo Web</h3>
-                    <p class="category-description">Diseño y desarrollo de sitios web modernos, rápidos y optimizados.
-                    </p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">📧</div>
-                    <h3 class="category-title">Email Profesional</h3>
-                    <p class="category-description">Servicio de correo electrónico empresarial con tu propio dominio.
-                    </p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🎮</div>
-                    <h3 class="category-title">Hosting Gaming</h3>
-                    <p class="category-description">Servidores optimizados para juegos con baja latencia y alto
-                        rendimiento.</p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">📄</div>
-                    <h3 class="category-title">Trámites Digitales</h3>
-                    <p class="category-description">Gestión profesional de trámites y documentación en línea.</p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🔒</div>
-                    <h3 class="category-title">Seguridad Web</h3>
-                    <p class="category-description">Certificados SSL, protección DDoS y respaldos automáticos.</p>
-                    <div class="category-arrow">Explorar →</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('home.services')
 
-    <section class="section services-section" id="servicios">
+    <section class="tournaments-section" id="torneos">
+
         <div class="container">
+
             <div class="section-header">
-                <span class="section-tag">Lo que Hacemos</span>
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <p class="section-description">Servicios profesionales diseñados para hacer crecer tu negocio en el
-                    mundo digital.</p>
+                <span class="section-tag">Competencias</span>
+
+                <h2 class="section-title">
+                    Torneos Activos
+                </h2>
+
+                <p class="section-description">
+                    Participa en competencias organizadas, demuestra tu nivel y gana increíbles premios.
+                </p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">🌐</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Hosting Web Premium</h3>
-                        <p class="service-description">Alojamiento web rápido y seguro con garantía de uptime del
-                            99.9%.</p>
-                        <ul class="service-features">
-                            <li>SSD NVMe Ultra Rápidos</li>
-                            <li>SSL Gratis Incluido</li>
-                            <li>Backups Diarios Automáticos</li>
-                            <li>Soporte Técnico 24/7</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
+
+            <div class="tournaments-grid">
+
+                <!-- CARD -->
+                <div class="tournament-card">
+
+                    <div class="tournament-banner">
+
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
+                            alt="">
+
+                        <div class="tournament-status live">
+                            EN VIVO
+                        </div>
+
+                        <div class="tournament-game">
+                            <x-ui.svg-icon name="controller" />
+                            <span>Valorant</span>
+                        </div>
+
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">💻</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Desarrollo Web</h3>
-                        <p class="service-description">Creación de sitios web modernos y responsivos adaptados a tu
-                            negocio.</p>
-                        <ul class="service-features">
-                            <li>Diseño Personalizado</li>
-                            <li>Optimización SEO</li>
-                            <li>Responsive Design</li>
-                            <li>Panel de Administración</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
+
+                    <div class="tournament-content">
+
+                        <div class="tournament-top">
+
+                            <div>
+                                <h3 class="tournament-title">
+                                    Valorant Champions
+                                </h3>
+
+                                <p class="tournament-organizer">
+                                    Organizado por Nexus Arena
+                                </p>
+                            </div>
+
+                            <div class="tournament-prize">
+                                $500
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-meta">
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="people" />
+                                <span>32 Equipos</span>
+                            </div>
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="calendar-event" />
+                                <span>18 Mayo</span>
+                            </div>
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="geo-alt" />
+                                <span>Online</span>
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-progress">
+
+                            <div class="progress-info">
+                                <span>Inscripciones</span>
+                                <span>24/32</span>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-actions">
+
+                            <a href="#" class="btn-primary">
+                                <x-ui.svg-icon name="rocket-takeoff" />
+                                <span>Inscribirse</span>
+                            </a>
+
+                            <a href="#" class="btn-secondary">
+                                <x-ui.svg-icon name="diagram-3" />
+                            </a>
+
+                        </div>
+
                     </div>
+
                 </div>
-                <div class="service-card">
-                    <div class="service-image">📧</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Email Corporativo</h3>
-                        <p class="service-description">Cuentas de correo profesionales con tu dominio empresarial.</p>
-                        <ul class="service-features">
-                            <li>Casillas Ilimitadas</li>
-                            <li>Anti-Spam Avanzado</li>
-                            <li>Acceso Webmail</li>
-                            <li>Sincronización Multi-dispositivo</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
+
+                <!-- CARD -->
+                <div class="tournament-card">
+
+                    <div class="tournament-banner">
+
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
+                            alt="">
+
+                        <div class="tournament-status upcoming">
+                            PRÓXIMO
+                        </div>
+
+                        <div class="tournament-game">
+                            <x-ui.svg-icon name="controller" />
+                            <span>Free Fire</span>
+                        </div>
+
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🎮</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Servidores Gaming</h3>
-                        <p class="service-description">Hosting especializado para servidores de juegos con mínima
-                            latencia.</p>
-                        <ul class="service-features">
-                            <li>Hardware de Alto Rendimiento</li>
-                            <li>DDoS Protection</li>
-                            <li>Panel de Control Intuitivo</li>
-                            <li>Instalación Instantánea</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
+
+                    <div class="tournament-content">
+
+                        <div class="tournament-top">
+
+                            <div>
+                                <h3 class="tournament-title">
+                                    Free Fire Masters
+                                </h3>
+
+                                <p class="tournament-organizer">
+                                    Organizado por Fire League
+                                </p>
+                            </div>
+
+                            <div class="tournament-prize">
+                                $250
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-meta">
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="people" />
+                                <span>48 Jugadores</span>
+                            </div>
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="calendar-event" />
+                                <span>22 Mayo</span>
+                            </div>
+
+                            <div class="meta-item">
+                                <x-ui.svg-icon name="geo-alt" />
+                                <span>LAN</span>
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-progress">
+
+                            <div class="progress-info">
+                                <span>Inscripciones</span>
+                                <span>40/48</span>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-2"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="tournament-actions">
+
+                            <a href="#" class="btn-primary">
+                                <x-ui.svg-icon name="rocket-takeoff" />
+                                <span>Inscribirse</span>
+                            </a>
+
+                            <a href="#" class="btn-secondary">
+                                <x-ui.svg-icon name="diagram-3" />
+                            </a>
+
+                        </div>
+
                     </div>
+
                 </div>
-                <div class="service-card">
-                    <div class="service-image">📄</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Trámites Digitales</h3>
-                        <p class="service-description">Gestión eficiente de trámites y documentación oficial en línea.
-                        </p>
-                        <ul class="service-features">
-                            <li>Asesoría Personalizada</li>
-                            <li>Gestión Rápida</li>
-                            <li>Seguimiento en Tiempo Real</li>
-                            <li>Documentación Segura</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🔒</div>
-                    <div class="service-content">
-                        <h3 class="service-title">Seguridad y Respaldos</h3>
-                        <p class="service-description">Protección completa para tu sitio web y datos empresariales.</p>
-                        <ul class="service-features">
-                            <li>Certificados SSL</li>
-                            <li>Protección Anti-Malware</li>
-                            <li>Firewall Avanzado</li>
-                            <li>Backups Automáticos</li>
-                        </ul>
-                        <a href="#" class="service-link">Más información →</a>
-                    </div>
-                </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section class="cta-section" id="contacto">
@@ -222,51 +252,7 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>{{ config('app.name') }}</h3>
-                <p>Una experiencia diferente, conectando nuestra gente.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">f</a>
-                    <a href="#" title="Twitter">𝕏</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="LinkedIn">in</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Servicios</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Hosting Web</a></li>
-                    <li><a href="#">Desarrollo Web</a></li>
-                    <li><a href="#">Email Corporativo</a></li>
-                    <li><a href="#">Hosting Gaming</a></li>
-                    <li><a href="#">Trámites Digitales</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Empresa</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Acerca de</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Casos de Éxito</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Soporte</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Centro de Ayuda</a></li>
-                    <li><a href="#">Documentación</a></li>
-                    <li><a href="#">Estado del Sistema</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 {{ config('app.name') }}. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    @include('home.footer')
 
     <script>
         window.addEventListener('scroll', function() {

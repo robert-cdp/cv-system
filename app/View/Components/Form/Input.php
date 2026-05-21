@@ -13,6 +13,7 @@ class Input extends Component
     public string $placeholder;
     public bool $required;
     public $value;
+    public $step;
 
     public function __construct(
         string $name,
@@ -21,7 +22,8 @@ class Input extends Component
         string $icon = '',
         string $placeholder = '',
         bool $required = false,
-        $value = null
+        $value = null,
+        $step = null
     ) {
         $this->name = $name;
         $this->label = $label;
@@ -30,6 +32,7 @@ class Input extends Component
         $this->placeholder = $placeholder;
         $this->required = $required;
         $this->value = $value ?? old($name);
+        $this->step = $step;
     }
 
     public function render()
